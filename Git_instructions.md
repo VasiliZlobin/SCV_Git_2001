@@ -12,3 +12,10 @@ git --version
 
 [Установщик Git для OS X доступен для скачивания с сайта Git https://git-scm.com/download/mac](https://git-scm.com/download/mac)
 
+## Настройка Git
+
+При первом использовании Git необходимо представиться. Для этого выполните команды установки адреса электронной почты и имени пользователя:
+```
+git config --global user.email ваша_почта@example.com
+git config --global user.name «Ваше имя англ буквами»
+```
