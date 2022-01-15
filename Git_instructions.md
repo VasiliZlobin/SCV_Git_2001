@@ -7,3 +7,8 @@
 git --version
 ```
 Если Git в наличии, то покажет версию Git, иначе будет сообщение об ошибке.
+
+## Установка Git
+
+[Установщик Git для OS X доступен для скачивания с сайта Git https://git-scm.com/download/mac](https://git-scm.com/download/mac)
+
