@@ -90,6 +90,19 @@ git checkout master
 
 ## Работа с ветками в Git
 
+Пример перехода на другую ветку:
+```
+MacBook15R:work_lesson_2 zlobin$ git checkout conflict
+Switched to branch 'conflict'
+MacBook15R:work_lesson_2 zlobin$ git branch
+* conflict
+  createBranch
+  deleteBranch
+  editOther
+  master
+  mergeBranches
+```
+
 ### Создание ветки
 
 ### Слияние веток
