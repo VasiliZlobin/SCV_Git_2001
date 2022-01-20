@@ -90,6 +90,19 @@ git checkout master
 
 ## Работа с ветками в Git
 
+Для просмотра списка веток в рабочем репозитарии используется команда `git branch`. В результате ее выполнения будет выведен список веток с пометкой звездочкой активной в данный момент:
+```
+MacBook15R:work_lesson_2 zlobin$ git branch
+  conflict
+  createBranch
+  deleteBranch
+* editOther
+  master
+  mergeBranches
+```
+
+Переключение на другую ветку осуществляется командой `git checkout <имя_ветки>`.
+
 ### Создание ветки
 
 ### Слияние веток
