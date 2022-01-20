@@ -90,6 +90,19 @@ git checkout master
 
 ## Работа с ветками в Git
 
+Пример перехода на другую ветку:
+```
+MacBook15R:work_lesson_2 zlobin$ git checkout conflict
+Switched to branch 'conflict'
+MacBook15R:work_lesson_2 zlobin$ git branch
+* conflict
+  createBranch
+  deleteBranch
+  editOther
+  master
+  mergeBranches
+```
+
 ### Создание ветки
 
 Для создания новй ветки без переключения на нее используйте команду
@@ -122,5 +135,17 @@ Fast-forward
 ![Результат команды git log --graph](log_graph.png)
 
 ### Разрешение конфликтов при слиянии веток
+
+Если при слиянии были обнаружены конфликты, которые Git не смог разрешить автоматически, он сообщит об этом. Пример такого результата:
+```
+MacBook15R:work_lesson_2 zlobin$ git merge conflict2
+Auto-merging Git_instructions.md
+CONFLICT (content): Merge conflict in Git_instructions.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+В указанные файлы Git поместит управляющие строки-комментарии, для которых VSCode предлагает механизм их обработки.
+![Пример конфликта](conflict.png)
+
+После того, как разрешены все конфликты, Git позволит выполнить коммит.
 
 ### Удаление ветки
