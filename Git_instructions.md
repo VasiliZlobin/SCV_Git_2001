@@ -107,6 +107,15 @@ MacBook15R:work_lesson_2 zlobin$ git branch
   createBranch
   deleteBranch
 * editOther
+```
+Если находимся не в актуальной точке ветки (с помощью команды `git checkout <идентификатор>` откатились на более ранний коммит), то активной будет показана точка, с частью идентификатора текущего коммита. Например:
+```
+MacBook15R:work_lesson_2 zlobin$ git branch
+* (HEAD detached at 8f5cdbb)
+  conflict
+  createBranch
+  deleteBranch
+  editOther
   master
   mergeBranches
 ```
