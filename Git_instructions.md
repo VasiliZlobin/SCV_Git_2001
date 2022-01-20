@@ -149,3 +149,15 @@ Automatic merge failed; fix conflicts and then commit the result.
 После того, как разрешены все конфликты, Git позволит выполнить коммит.
 
 ### Удаление ветки
+
+Для удаления ветки используйте команду `git branch -d <имя_ветки>`. Git не выполнит удаление, если активная ветка не была объединена с удаляемой, и выведет соответствующее сообщение:
+```
+MacBook15R:work_lesson_2 zlobin$ git branch -d conflict2
+error: The branch 'conflict2' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D conflict2'.
+```
+Пример сообщения об успешном удалении ветки:
+```
+MacBook15R:work_lesson_2 zlobin$ git branch -d conflict2
+Deleted branch conflict2 (was 322ff85).
+```
