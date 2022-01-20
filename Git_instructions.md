@@ -109,4 +109,16 @@ MacBook15R:work_lesson_2 zlobin$ git branch
 
 ### Разрешение конфликтов при слиянии веток
 
+Если при слиянии были обнаружены конфликты, которые Git не смог разрешить автоматически, он сообщит об этом. Пример такого результата:
+```
+MacBook15R:work_lesson_2 zlobin$ git merge conflict2
+Auto-merging Git_instructions.md
+CONFLICT (content): Merge conflict in Git_instructions.md
+Automatic merge failed; fix conflicts and then commit the result.
+```
+В указанные файлы Git поместит управляющие строки-комментарии, для которых VSCode предлагает механизм их обработки.
+![Пример конфликта](conflict.png)
+
+После того, как разрешены все конфликты, Git позволит выполнить коммит.
+
 ### Удаление ветки
