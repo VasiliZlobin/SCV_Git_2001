@@ -132,7 +132,7 @@ MacBook15R:work_lesson_2 zlobin$ git branch
 
 ### Создание ветки
 
-Для создания новй ветки без переключения на нее используйте команду
+Для создания новой ветки без переключения на нее используйте команду
 ```
 git branch <имя_новой ветки>
 ```
@@ -188,3 +188,86 @@ If you are sure you want to delete it, run 'git branch -D conflict2'.
 MacBook15R:work_lesson_2 zlobin$ git branch -d conflict2
 Deleted branch conflict2 (was 322ff85).
 ```
+
+## Работа с удаленными репозиториями
+
+### Копирование репозитория (удаленного или локального)
+
+Для копирования репозитория используйте команду:
+```
+git clone <путь к репозиторию для копирования>
+```
+
+В активной директории будет создана поддиректория с именем копируемого репозитория. Для продолжения работы с скопированным репозиторием требуется перейти в эту директорию (сделать ее активной).
+
+### Настройка соединения локального репозитория и удаленного
+
+Для этого требуется выполнить следующую команду:
+```
+git remote add <имя соединения> <путь к удаленному репозиторию>
+```
+
+Имя соединения в дальнейшем понадобится указывать в последующих командах.
+
+Для проверки настроек соединения используте команду `git remote -v`. Пример результата:
+```
+MacBook15R:work_lesson_3 zlobin$ git remote -v
+for_pull_request        https://github.com/VasiliZlobin/SCV_Git_2001.git (fetch)
+for_pull_request        https://github.com/VasiliZlobin/SCV_Git_2001.git (push)
+```
+
+### Обмен данными между локальным и удаленным репозиториями
+
+1. При создании нового репозитория на GitHub будет предоставлен список команд для настройки соединения с локальным и загрузки данных из него в удаленны репозиторий. Например:
+```
+git remote add origin https://github.com/VasiliZlobin/repo.git
+git branch -M main
+git push -u origin main
+```
+
+2. Для отправки данных на удаленный репозиторий используется команда `git push`. Git выдаст подсказку при необходимости использования ее параметров. Например, результат выполнения команды:
+```
+MacBook15R:repo zlobin$ git branch
+* main
+MacBook15R:repo zlobin$ git remote -v
+origin	https://github.com/VasiliZlobin/repo.git (fetch)
+origin	https://github.com/VasiliZlobin/repo.git (push)
+MacBook15R:repo zlobin$ git push
+Counting objects: 38, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (34/34), done.
+Writing objects: 100% (38/38), 3.57 KiB | 0 bytes/s, done.
+Total 38 (delta 19), reused 0 (delta 0)
+remote: Resolving deltas: 100% (19/19), done.
+To https://github.com/VasiliZlobin/repo.git
+ * [new branch]      main -> main
+```
+
+3. Для загрузки изменений из удаленного репозитория в локальный используется команда `git pull`. Git также выдаст подсказку при необходимости. Пример результата выполнения команды:
+```
+MacBook15R:repo zlobin$ git pull
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+From https://github.com/VasiliZlobin/repo
+   4e4636a..7d78803  main       -> origin/main
+Updating 4e4636a..7d78803
+Fast-forward
+ readme.md | 1 +
+ 1 file changed, 1 insertion(+)
+```
+
+### Создание pull request
+
+1. Сначала необходимо сделать fork целевого репозитория для pull request.
+
+2. Синхронизировать свою версию репозитория с локальным. Два способа:
+
+   * Сделать `git clone` этого репозитория
+   * В инициалированном репозитории выполнить команду `git pull <имя соединения> <имя ветки удаленного репозитория>`
+
+3. Создать новую ветку в локальном репозитории, и в ней сделать все изменения с коммитами.
+
+4. Отправить версию локального репозитория в свой удаленный репозиторий (`git push`). На странице удаленного репозитория создать pull request и отправить его.
